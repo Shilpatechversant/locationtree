@@ -22,26 +22,21 @@
                                 </cfoutput>
                             </table>
                         </div>
-           
+                    <hr>
                         <ul class="tree">                     
                                 <cfset data.processTreeNode(folderId=1, folderName="Kerala") />
                         </ul>                                              
-                    <form name="cftask_5" action="" method="post">
+                    <form name="cftask_5" action="controllers/admin.cfc?method=getParents" method="post">
                         <div class="form-group">
                             <label>Location Id</label>
-                            <input type="text" name="location_id" required  autocomplete="off">
+                            <input type="text" name="folderId" required  autocomplete="off">
                         </div>
                      
                         <div class="form-btn-control">
                             <input type="submit" class="common-btn" name="submit" value="Submit" />
                         </div>
                     </form>
-                    <cfif structKeyExists(form,'Submit')>
-                        <cfset key=form.location_id>                   
-                        <cfset data=createObject("component","controllers.admin")>
-                        <cfset struct_data=data.getLocationTree()>
-                        <cfdump var="#struct_data#">
-                    </cfif>
+           
                 </div>
 
             </div>
